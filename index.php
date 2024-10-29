@@ -11,6 +11,7 @@
 </head>
 <body>
     <div class="tobesi">
+        
     <div class="menu">
         <a href="#">Home</a>
         <a href="#">About</a>
@@ -20,6 +21,39 @@
         <button type="submit" onclick="modalOpen()">Register</button>
     </div>
     </div>
+
+    <div class="modal-main">
+             <h1>Sign In</h1>
+             <form action="reg.php" method="POST">
+                 <input type="text" name="email" placeholder="Почта или телефон">
+                 <input type="text" name="full_name" placeholder="Полное имя">
+                 <input type="text" name="nickname" placeholder="Nickname">
+                 <input type="password" name="password" placeholder="Введите пароль">
+                 <input type="password" name="password2" placeholder="Подтвердить пароль">
+
+                 <?php
+                 if(isset($_GET['error']) && $_GET['error'] == 1){
+                    ?>
+                    <h2 class="text-danger">Толық енгіз!</h2>
+                    <?php
+                 } 
+                 else if (isset($_GET['error']) && $_GET['error'] == 2){
+                 ?>
+                 <h2 class="text-danger">Пароль қате!</h2>
+                 <?php
+                 }
+                 else if (isset($_GET['error']) && $_GET['error'] == 3){
+                    ?>
+                    <h2 class="text-danger">Тіркелген аккаунт!</h2>
+                    <?php
+                    }
+                ?>
+                 <button type="submit">Sign In</button>
+                 <p>Dont have an account?</p>
+                 <a href="">Sign Up</a>
+             </form>
+        </div>
+        
     <div class="basty">
         <div class="text">
             <p>ЧТО МЫ ДЕЛАЕМ</p>
@@ -65,19 +99,7 @@
     </div>
 
     <div class="modal">
-        <div class="modal-main">
-             <h1>Sign In</h1>
-             <form action="api/register.php" method="POST">
-                 <input type="text" name="email" placeholder="Почта или телефон">
-                 <input type="text" name="full_name" placeholder="Полное имя">
-                 <input type="text" name="nickname" placeholder="Nickname">
-                 <input type="password" name="password" placeholder="Введите пароль">
-                 <input type="password" name="password2" placeholder="Подтвердить пароль">
-                 <button type="submit">Sign In</button>
-                 <p>Dont have an account?</p>
-                 <a href="">Sign Up</a>
-             </form>
-        </div>
+
         <a class="x" href="" onclick="modalClose()">X</a>
      </div>
  
